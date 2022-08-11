@@ -5,14 +5,14 @@ using UnityEngine.UI;
 
 public class ddong : MonoBehaviour
 {
-    private float GRAVITY = 1.0f;
+    private float gravity = 1.0f;
     private float mVelocity = 0f;
 
     void Update()
     {
         Vector3 current = this.transform.position;
 
-        mVelocity += GRAVITY * Time.deltaTime;
+        mVelocity += gravity * Time.deltaTime;
 
         current.y -= mVelocity * Time.deltaTime;
         this.transform.position = current;
