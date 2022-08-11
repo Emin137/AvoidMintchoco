@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item
+public class Item : MonoBehaviour
 {
     public int itemID; // 아이템 고유 ID값
     public string itemName; // 아이템 이름
@@ -27,4 +27,11 @@ public class Item
         itemType = type;
         itemIcon = Resources.Load("Scene 02. Loby/Sprites" + id.ToString(), typeof(Sprite)) as Sprite;
     }
+
+    private void Start()
+    {
+        List<Item> itemList = new List<Item>();
+    }
+
+
 }
