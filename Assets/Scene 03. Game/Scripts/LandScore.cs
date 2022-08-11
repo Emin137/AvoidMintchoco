@@ -16,14 +16,17 @@ public class LandScore : MonoBehaviour
     }
 
     public static int currentScore;
+    public float level;
     public Text scoreText;
     void Start()
     {
         currentScore = 1;
+        level = 1;
     }
     public void HandleScore()
     {
         currentScore++;
+        level = 1 + (currentScore / 30);
         scoreText.text = "Score" + currentScore;
     }
 }
