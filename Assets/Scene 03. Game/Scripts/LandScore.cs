@@ -20,7 +20,7 @@ public class LandScore : MonoBehaviour
     public Text scoreText;
     void Start()
     {
-        currentScore = 1;
+        currentScore = 0;
         level = 1;
     }
     public void HandleScore()
