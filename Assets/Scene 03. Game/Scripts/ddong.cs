@@ -16,7 +16,7 @@ public class ddong : MonoBehaviour
     {
         Vector3 current = this.transform.position;
 
-        mVelocity += gravity * Time.deltaTime * LandScore.Instance.level;
+        mVelocity += gravity * Time.deltaTime * Land.Instance.level;
 
         current.y -= mVelocity * Time.deltaTime;
         this.transform.position = current;
@@ -31,7 +31,7 @@ public class ddong : MonoBehaviour
         }
         if (collision.name == "Land")
         {
-            LandScore.Instance.HandleScore();
+            Land.Instance.HandleScore();
         }
         Destroy(this.gameObject);
     }

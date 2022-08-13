@@ -16,7 +16,7 @@ public class coin : MonoBehaviour
     {
         Vector3 current = this.transform.position;
 
-        mVelocity += gravity * Time.deltaTime * LandScore.Instance.level;
+        mVelocity += gravity * Time.deltaTime * Land.Instance.level;
 
         current.y -= mVelocity * Time.deltaTime;
         this.transform.position = current;
@@ -27,11 +27,7 @@ public class coin : MonoBehaviour
     {
         if (collision.name == "Player")
         {
-            Debug.Log("coin");
-        }
-        if (collision.name == "Land")
-        {
-            
+            Land.Instance.HandleCoin();
         }
         Destroy(this.gameObject);
     }
