@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] private Button gameStartButton;
     [SerializeField] private GameObject panelGameObject;
+    [SerializeField] private GameObject panelLoby;
 
     private void Awake()
     {
@@ -16,5 +17,6 @@ public class UIManager : MonoBehaviour
     private void SetActivePanel()
     {
         panelGameObject.SetActive(true);
+        panelLoby.SetActive(false);
     }
 }
