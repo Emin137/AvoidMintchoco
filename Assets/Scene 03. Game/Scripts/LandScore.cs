@@ -22,6 +22,7 @@ public class LandScore : MonoBehaviour
     {
         currentScore = 0;
         level = 1;
+        scoreText.text = "Score" + currentScore;
     }
     public void HandleScore()
     {
