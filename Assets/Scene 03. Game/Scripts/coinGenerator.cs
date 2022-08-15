@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class coinGenerator : MonoBehaviour
+public class CoinGenerator : MonoBehaviour
 {
-    const float CREATE_INTERVAL = 0.18f;
+    const float CREATE_INTERVAL = 0.74f;
     float mCreatTime = 0;
     float mTotalTIme = 0;
 

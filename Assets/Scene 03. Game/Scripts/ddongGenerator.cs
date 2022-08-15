@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ddongGenerator : MonoBehaviour
+public class DDongGenerator : MonoBehaviour
 {
     const float CREATE_INTERVAL = 0.18f;
     float mCreatTime = 0;
