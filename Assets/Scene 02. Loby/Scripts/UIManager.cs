@@ -6,14 +6,15 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] private Button gameReadyButton;
-    [SerializeField] private Button gameStartButton;
-    [SerializeField] private Button setButton;
-    [SerializeField] private Button rankButton;
-    [SerializeField] private GameObject panelGameReady;
-    [SerializeField] private GameObject panelLoby;
-    [SerializeField] private GameObject panelSet;
-    [SerializeField] private GameObject panelRank;
+    public Button gameReadyButton;
+    public Button gameStartButton;
+    public Button slotAgainButton;
+    public Button setButton;
+    public Button rankButton;
+    public GameObject panelGameReady;
+    public GameObject panelLoby;
+    public GameObject panelSet;
+    public GameObject panelRank;
     private static UIManager instance;
     public static UIManager Instance
     {
@@ -33,7 +34,9 @@ public class UIManager : MonoBehaviour
         setButton.onClick.AddListener(SetActivePanelSet);
         rankButton.onClick.AddListener(SetActivePanelRank);
         gameStartButton.onClick.AddListener(SceneTrans);
+        slotAgainButton.onClick.AddListener(SlotAgain);
         gameStartButton.interactable = false;
+        slotAgainButton.interactable = false;
     }
 
     private void SetActivePanelGameReady()
@@ -62,5 +65,16 @@ public class UIManager : MonoBehaviour
     public void SetActiveStartButton()
     {
         gameStartButton.interactable = true;
+    }
+
+    public void SetActiveSlotAgainButton()
+    {
+        slotAgainButton.interactable = true;
+    }
+
+    public void SlotAgain()
+    {
+        gameStartButton.interactable = false;
+        slotAgainButton.interactable = false;
     }
 }
