@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        speed = 5.0f;
         float horizontal = Input.GetAxis("Horizontal");
 
         transform.Translate(horizontal * Time.deltaTime * speed, 0f, 0f);
