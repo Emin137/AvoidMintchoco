@@ -690,6 +690,7 @@ MonoBehaviour:
   objectNum: 3
   lastRullet: 1
   skillType: 0
+  rulletAgainButton: {fileID: 43871434}
 --- !u!1 &252279006
 GameObject:
   m_ObjectHideFlags: 0
@@ -2408,6 +2409,7 @@ MonoBehaviour:
   objectNum: 3
   lastRullet: 0
   skillType: 1
+  rulletAgainButton: {fileID: 43871434}
 --- !u!1 &818313121
 GameObject:
   m_ObjectHideFlags: 0
@@ -3153,6 +3155,7 @@ MonoBehaviour:
   objectNum: 3
   lastRullet: 0
   skillType: 2
+  rulletAgainButton: {fileID: 43871434}
 --- !u!1 &1406287463
 GameObject:
   m_ObjectHideFlags: 0

@@ -42,7 +42,7 @@ public class SkillManager : MonoBehaviour
         SkillManager.AddSkill(new SkillData("04", "얼음땡!", "플레이어가 2초 동안 움직일 수 없으며 무적상태가 됩니다.", SkillData.SkillType.Active));
         SkillManager.AddSkill(new SkillData("05", "핑거스냅", "현재 떨어지고있는 똥의 반절을 타노스 합니다.", SkillData.SkillType.Active));
         SkillManager.AddSkill(new SkillData("06", "무수한 똥", "똥의 생성주기가 빨라집니다.", SkillData.SkillType.Debuff));
-        SkillManager.AddSkill(new SkillData("07", "거대하게", "떨어지는 똥의 크기가 커집니다.", SkillData.SkillType.Debuff));
+        SkillManager.AddSkill(new SkillData("07", "거대한 똥", "떨어지는 똥의 크기가 커집니다.", SkillData.SkillType.Debuff));
         SkillManager.AddSkill(new SkillData("08", "나는 부자다", "코인 생성주기가 빨라집니다.", SkillData.SkillType.Debuff));
     }
 

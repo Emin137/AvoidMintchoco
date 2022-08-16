@@ -13,10 +13,18 @@ public class SlotManager : MonoBehaviour
     public int objectNum;
     public bool lastRullet;
     public SkillData.SkillType skillType;
+    public Button rulletAgainButton;
     List<string> listSkillName = new List<string>();
 
-    public void Awake()
+    private void Awake()
     {
+        RulletSlot();
+        rulletAgainButton.onClick.AddListener(RulletSlot);
+    }
+
+    public void RulletSlot()
+    {
+        listSkillName.Clear();
         Queue<SkillData> skillDataQueue = new Queue<SkillData>(SkillManager.GetSkillStack(skillType));
         List<SkillData> skillDataList = new List<SkillData>();
         int N = Random.Range(0, objectNum + 1);
@@ -26,13 +34,13 @@ public class SlotManager : MonoBehaviour
         for (int i = 0; i < objectNum; i++)
         {
             images[i + 1].sprite = skillDataList[i].skillSprite;
-            listSkillName.Add(skillDataList[objectNum-i-1].skillName);
+            listSkillName.Add(skillDataList[objectNum - i - 1].skillName);
         }
         images[0].sprite = skillDataList[2].skillSprite;
-        StartCoroutine(StartSlot());
+        StartCoroutine(StartRullet());
     }
 
-    IEnumerator StartSlot()
+    IEnumerator StartRullet()
     {
         int count = 0;
         for (int i = 0; i < (objectNum * rulletRoundNum)*2; i++)
@@ -66,5 +74,6 @@ public class SlotManager : MonoBehaviour
             UIManager.Instance.SetActiveStartButton();
             UIManager.Instance.SetActiveSlotAgainButton();
         }
+        yield return null;
     }
 }
