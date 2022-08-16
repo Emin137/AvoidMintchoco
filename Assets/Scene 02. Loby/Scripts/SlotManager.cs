@@ -23,12 +23,12 @@ public class SlotManager : MonoBehaviour
         for (int i = 0; i < N; i++)
             skillDataQueue.Enqueue(skillDataQueue.Dequeue());
         skillDataList = new List<SkillData>(skillDataQueue);
-        for (int i = 0; i < skillDataQueue.Count; i++)
+        for (int i = 0; i < objectNum; i++)
         {
             images[i + 1].sprite = skillDataList[i].skillSprite;
-            listSkillName.Add(skillDataList[i].skillName);
+            listSkillName.Add(skillDataList[objectNum-i-1].skillName);
         }
-        images[0].sprite = skillDataList[0].skillSprite;
+        images[0].sprite = skillDataList[2].skillSprite;
         StartCoroutine(StartSlot());
     }
 
