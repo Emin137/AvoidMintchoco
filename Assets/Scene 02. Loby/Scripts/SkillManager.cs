@@ -5,11 +5,22 @@ using UnityEngine;
 public class SkillManager : MonoBehaviour
 {
     private static List<SkillData> skillDataList = new List<SkillData>();
+    private static List<SkillData> resultSkillList = new List<SkillData>();
 
     public static void AddSkill(SkillData skillData)
     {
         skillDataList.Add(skillData);
     }    
+
+    public static void AddResultSkill(SkillData skilldata)
+    {
+        resultSkillList.Add(skilldata);
+    }
+
+    public static List<SkillData> GetResultSkill()
+    {
+        return resultSkillList;
+    }
 
     public static SkillData GetSkill(string code)
     {

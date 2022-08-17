@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Animations;
 using UnityEngine.UI;
 
-public class SlotManager : MonoBehaviour
+public class SlotManager : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
 {
     public GameObject slotObject; 
     public Image[] images;
@@ -14,7 +15,9 @@ public class SlotManager : MonoBehaviour
     public bool lastRullet;
     public SkillData.SkillType skillType;
     public Button rulletAgainButton;
-    List<string> listSkillName = new List<string>();
+    private List<string> listSkillName = new List<string>();
+    private SkillData resultSkillData;
+    private bool endRullet = false;
 
     private void Awake()
     {
@@ -38,6 +41,8 @@ public class SlotManager : MonoBehaviour
         }
         images[0].sprite = skillDataList[2].skillSprite;
         StartCoroutine(StartRullet());
+        resultSkillData = skillDataList[2];
+        SkillManager.AddResultSkill(resultSkillData);
     }
 
     IEnumerator StartRullet()
@@ -74,6 +79,18 @@ public class SlotManager : MonoBehaviour
             UIManager.Instance.SetActiveStartButton();
             UIManager.Instance.SetActiveSlotAgainButton();
         }
+        endRullet = true;
         yield return null;
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if(SkillManager.GetResultSkill().Count!=0 && endRullet)
+            UIManager.Instance.ShowPanelToolTip(resultSkillData.skillName,resultSkillData.skillDescription);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        UIManager.Instance.HidePanelToolTip();
     }
 }

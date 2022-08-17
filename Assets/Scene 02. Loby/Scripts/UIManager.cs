@@ -15,6 +15,9 @@ public class UIManager : MonoBehaviour
     public GameObject panelLoby;
     public GameObject panelSet;
     public GameObject panelRank;
+    public GameObject panelToolTip;
+    public Text skillNameText;
+    public Text skillDescriptionText;
     private static UIManager instance;
     public static UIManager Instance
     {
@@ -76,5 +79,17 @@ public class UIManager : MonoBehaviour
     {
         gameStartButton.interactable = false;
         slotAgainButton.interactable = false;
+    }
+
+    public void ShowPanelToolTip(string name, string description)
+    {
+        panelToolTip.SetActive(true);
+        skillNameText.text = name;
+        skillDescriptionText.text = description;
+    }
+
+    public void HidePanelToolTip()
+    {
+        panelToolTip.SetActive(false);
     }
 }
