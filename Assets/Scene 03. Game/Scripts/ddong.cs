@@ -7,6 +7,7 @@ public class DDong : MonoBehaviour
 {
     private float gravity;
     private float mVelocity = 0f;
+    public static bool GameIsPaused = false;
 
     private void Start()
     {
@@ -25,10 +26,6 @@ public class DDong : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name == "Player")
-        {
-            Debug.Log("die");
-        }
         if (collision.name == "Land")
         {
             Land.Instance.HandleScore();

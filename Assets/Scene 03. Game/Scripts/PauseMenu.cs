@@ -8,7 +8,7 @@ public class PauseMenu : MonoBehaviour
 {
     [SerializeField] Button pauseButton;
     [SerializeField] Button resumeButton;
-    [SerializeField] Button LobyButton;
+    [SerializeField] Button lobyButton;
     public static bool GameIsPaused = false;
 
     public GameObject pauseMenu;
@@ -18,7 +18,7 @@ public class PauseMenu : MonoBehaviour
     {
         pauseButton.onClick.AddListener(Pause);
         resumeButton.onClick.AddListener(Resume);
-        LobyButton.onClick.AddListener(Loby);
+        lobyButton.onClick.AddListener(Loby);
     }
 
     private void Resume()
