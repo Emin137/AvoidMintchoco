@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DDongGenerator : MonoBehaviour
 {
-    const float CREATE_INTERVAL = 0.18f;
+    const float CREATE_INTERVAL = 0.33f;
     float mCreatTime = 0;
     float mTotalTIme = 0;
 

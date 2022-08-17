@@ -10,9 +10,16 @@ public class PlayerController : MonoBehaviour
     public float speed;
     private float edge = 2.5f;
     public GameObject dieMenu;
+    public GameObject player;
     private int shield, coinAdd;
-
     public List<SkillData> skillData;
+    private bool skillused = false;
+    private float cooltime;
+
+    private void Awake()
+    {
+        skillButton.onClick.AddListener(UseSkill);
+    }
     private void Start()
     {
         speed = 5.0f;
@@ -22,14 +29,17 @@ public class PlayerController : MonoBehaviour
         if (skillData[0].skillName == "Á¡¸ê")
         {
             Debug.Log(skillData[0].skillName);
+            cooltime = 5.0f;
         }
         if (skillData[0].skillName == "¾óÀ½¶¯!")
         {
             Debug.Log(skillData[0].skillName);
+            cooltime = 5.0f;
         }
         if (skillData[0].skillName == "ÇÎ°Å½º³À")
         {
             Debug.Log(skillData[0].skillName);
+            cooltime = 5.0f;
         }
         if (skillData[1].skillName == "¿øÄÚ")
         {
@@ -74,6 +84,19 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = new Vector2(edge, transform.position.y);
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseMenu.Instance.Pause();
+        }
+        if (skillused)
+        {
+            skillButton.image.fillAmount += Time.deltaTime / cooltime;
+            if (skillButton.image.fillAmount >= 1)
+            {
+                skillused = false;
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -84,13 +107,23 @@ public class PlayerController : MonoBehaviour
             dieMenu.SetActive(true);
             Time.timeScale = 0f;
         }
-        else if (collision.name == "ddong(Clone)" && shield == 1)   
+        else if (collision.name == "ddong(Clone)" && shield == 1)
         {
             shield -= 1;
         }
         if (collision.name == "coin(Clone)")
         {
             Land.Instance.HandleCoin(coinAdd);
+        }
+    }
+
+    private void UseSkill()
+    {
+        if (skillused == false)
+        {
+            Debug.Log("½ºÅ³»ç¿ë");
+            skillButton.image.fillAmount = 0;
+            skillused = true;
         }
     }
 }

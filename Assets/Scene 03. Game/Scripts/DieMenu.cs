@@ -8,14 +8,22 @@ public class DieMenu : MonoBehaviour
 {
     [SerializeField] Button lobyButton;
     [SerializeField] Button quitButton;
+    [SerializeField] Text coinText;
+    [SerializeField] Text scoreText;
+
     private void Awake()
     {
         quitButton.onClick.AddListener(Quit);
         lobyButton.onClick.AddListener(Loby);
     }
+    private void Update()
+    {
+        coinText.text = Land.Instance.coin.ToString();
+        scoreText.text = "Score" + Land.Instance.currentScore;
+    }
     private void Quit()
     {
-        Debug.Log("구현아직안함");
+        Debug.Log("미구현");
     }
     private void Loby()
     {

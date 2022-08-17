@@ -22,9 +22,11 @@ public class Coin : MonoBehaviour
         this.transform.position = current;
     }
 
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(this.gameObject);
+        if (collision.name != "coin(Clone)" || collision.name != "ddong(Clone)")
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

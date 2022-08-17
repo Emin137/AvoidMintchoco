@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CoinGenerator : MonoBehaviour
 {
-    const float CREATE_INTERVAL = 0.74f;
+    const float CREATE_INTERVAL = 0.82f;
     float mCreatTime = 0;
     float mTotalTIme = 0;
 

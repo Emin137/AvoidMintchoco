@@ -15,8 +15,8 @@ public class Land : MonoBehaviour
         }
     }
 
-    public static int currentScore;
-    public static int coin;
+    public int currentScore;
+    public int coin;
     public float level;
     [SerializeField] Text scoreText;
     [SerializeField] Text coinText;

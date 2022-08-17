@@ -29,7 +29,7 @@ public class DDong : MonoBehaviour
         if (collision.name == "Land")
         {
             Land.Instance.HandleScore();
+            Destroy(this.gameObject);
         }
-        Destroy(this.gameObject);
     }
 }
