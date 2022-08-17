@@ -49,6 +49,7 @@ public class PauseMenu : MonoBehaviour
     private void Loby()
     {
         Time.timeScale = 1f;
+        PlayerController.Instance.ClearSkill();
         SceneManager.LoadScene("Scene02. Loby");
     }
     private void Quit()

@@ -5,6 +5,15 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    private static PlayerController instance;
+    public static PlayerController Instance
+    {
+        get
+        {
+            if (instance == null) instance = FindObjectOfType<PlayerController>();
+            return instance;
+        }
+    }
     [SerializeField] Button skillButton;
     [SerializeField] Image skillImage;
     public float speed;
@@ -22,7 +31,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Start()
     {
-        speed = 5.0f;
+        speed = 3.0f;
         coinAdd = 1;
         shield = 0;
         skillData = SkillManager.GetResultSkill();
@@ -105,6 +114,7 @@ public class PlayerController : MonoBehaviour
         if (collision.name == "ddong(Clone)" && shield == 0)
         {
             dieMenu.SetActive(true);
+            ClearSkill();
             Time.timeScale = 0f;
         }
         else if (collision.name == "ddong(Clone)" && shield == 1)
@@ -125,5 +135,9 @@ public class PlayerController : MonoBehaviour
             skillButton.image.fillAmount = 0;
             skillused = true;
         }
+    }
+    public void ClearSkill()
+    {
+        skillData.Clear();
     }
 }
