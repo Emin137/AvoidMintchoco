@@ -36,9 +36,9 @@ public class Land : MonoBehaviour
         scoreText.text = "Score" + currentScore;
     }
 
-    public void HandleCoin()
+    public void HandleCoin(int coinAdd)
     {
-        coin++;
+        coin += coinAdd;
         coinText.text = coin.ToString();
     }
 }
