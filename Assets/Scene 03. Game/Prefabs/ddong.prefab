@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5114889235877859895}
   m_Layer: 0
   m_Name: ddong
-  m_TagString: Untagged
+  m_TagString: ddong
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,7 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a22985f17f788bb43a98baca5df27325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dieMenu: {fileID: 0}
 --- !u!50 &5114889235877859894
 Rigidbody2D:
   serializedVersion: 4

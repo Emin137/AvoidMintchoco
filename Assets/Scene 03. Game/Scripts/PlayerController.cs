@@ -93,10 +93,14 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = new Vector2(edge, transform.position.y);
         }
-
+        
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             PauseMenu.Instance.Pause();
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            UseSkill();
         }
         if (skillused)
         {
@@ -129,9 +133,31 @@ public class PlayerController : MonoBehaviour
 
     private void UseSkill()
     {
-        if (skillused == false)
+        if (skillused == false && skillData[0].skillName == "Á¡¸ê")
         {
-            Debug.Log("½ºÅ³»ç¿ë");
+            Debug.Log("Á¡¸ê!!");
+            skillButton.image.fillAmount = 0;
+            skillused = true;
+        }
+        if (skillused == false && skillData[0].skillName == "¾óÀ½¶¯!")
+        {
+            Debug.Log("¾óÀ½¶¯!");
+            skillButton.image.fillAmount = 0;
+            skillused = true;
+        }
+        if (skillused == false && skillData[0].skillName == "ÇÎ°Å½º³À")
+        {
+            GameObject[] forDestroy = GameObject.FindGameObjectsWithTag("ddong");
+            {
+                for (int i = 0; i < forDestroy.Length; i++)
+                {
+                    if (forDestroy[i].transform.localPosition.y <= 1.4f)
+                    {
+                        GameObject.Destroy(forDestroy[i]);
+                    }
+                }
+            }
+
             skillButton.image.fillAmount = 0;
             skillused = true;
         }
