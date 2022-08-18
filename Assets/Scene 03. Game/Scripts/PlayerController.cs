@@ -87,6 +87,7 @@ public class PlayerController : MonoBehaviour
         if (skillData[2].skillName == "나는 부자다")
         {
             CoinGenerator.Instance.coinCreateTime = 0.60f;
+            coinAdd *= 2;
             Debug.Log(skillData[2].skillName);
         }
         skillImage.sprite = skillData[0].skillSprite;
