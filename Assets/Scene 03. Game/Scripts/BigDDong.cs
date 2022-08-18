@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Coin : MonoBehaviour
+public class BigDDong : MonoBehaviour
 {
     private float gravity;
     private float mVelocity = 0f;
+    public static bool GameIsPaused = false;
 
     private void Start()
     {
@@ -22,10 +23,15 @@ public class Coin : MonoBehaviour
         this.transform.position = current;
     }
 
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name != "ddong(Clone)" || collision.name != "Bigddong(Clone)")
+        if (collision.name != "coin(Clone)")
         {
+            if (collision.name == "Land")
+            {
+                Land.Instance.HandleScore();
+            }
             Destroy(this.gameObject);
         }
     }

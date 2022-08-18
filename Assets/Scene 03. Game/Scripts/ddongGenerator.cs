@@ -22,6 +22,7 @@ public class DDongGenerator : MonoBehaviour
     int mPhase = 1;
 
     public GameObject mDong;
+    public GameObject BigmDong;
     private void Start()
     {
         ddongCreatTime = 0.3f;
@@ -56,8 +57,16 @@ public class DDongGenerator : MonoBehaviour
 
     private void creatDdong(float y)
     {
-        float x = Random.Range(-2.5f, 2.5f);
-        createObject(mDong, new Vector3(x, y, 0), Quaternion.identity);
+        if (PlayerController.Instance.bigDDong == false)
+        {
+            float x = Random.Range(-2.5f, 2.5f);
+            createObject(mDong, new Vector3(x, y, 0), Quaternion.identity);
+        }
+        if (PlayerController.Instance.bigDDong == true)
+        {
+            float x = Random.Range(-2.5f, 2.5f);
+            createObject(BigmDong, new Vector3(x, y, 0), Quaternion.identity);
+        }
     }
 
     private GameObject createObject(GameObject original, Vector3 position, Quaternion rotation)

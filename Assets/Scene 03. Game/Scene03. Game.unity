@@ -154,6 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ddongCreatTime: 0
   mDong: {fileID: 5114889235877859892, guid: 7e53002e41fe8444db1bc74082627303, type: 3}
+  BigmDong: {fileID: 5114889235877859892, guid: 4354d0a8e32dbc144b4ce10a950f2a33, type: 3}
 --- !u!4 &42677455
 Transform:
   m_ObjectHideFlags: 0

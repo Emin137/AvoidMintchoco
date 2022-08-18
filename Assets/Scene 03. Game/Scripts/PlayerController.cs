@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
     private bool isLeft = false;
     private bool dontDie = false;
     private bool playerMove = true;
+    public bool bigDDong = false;
 
     
 
@@ -82,6 +83,7 @@ public class PlayerController : MonoBehaviour
         }
         if (skillData[2].skillName == "거대한 똥")
         {
+            bigDDong = true;
             Debug.Log(skillData[2].skillName);
         }
         if (skillData[2].skillName == "나는 부자다")
@@ -140,13 +142,13 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name == "ddong(Clone)" && shield == 0 && dontDie == false)
+        if (collision.name == "ddong(Clone)" || collision.name == "Bigddong(Clone)" && shield == 0 && dontDie == false)
         {
             dieMenu.SetActive(true);
             ClearSkill();
             Time.timeScale = 0f;
         } 
-        else if (collision.name == "ddong(Clone)" && shield == 1 && dontDie == false)
+        else if (collision.name == "ddong(Clone)" || collision.name == "Bigddong(Clone)" && shield == 1 && dontDie == false)
         {
             shield -= 1;
         }
