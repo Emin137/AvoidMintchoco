@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 42677455}
   - component: {fileID: 42677454}
   m_Layer: 0
-  m_Name: DDongGenerator
+  m_Name: DropGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -153,8 +153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ddongCreatTime: 0
-  mDong: {fileID: 5114889235877859892, guid: 7e53002e41fe8444db1bc74082627303, type: 3}
-  BigmDong: {fileID: 5114889235877859892, guid: 4354d0a8e32dbc144b4ce10a950f2a33, type: 3}
+  mDrop: {fileID: 5114889235877859892, guid: 7e53002e41fe8444db1bc74082627303, type: 3}
+  BigmDrop: {fileID: 5114889235877859892, guid: 4354d0a8e32dbc144b4ce10a950f2a33, type: 3}
 --- !u!4 &42677455
 Transform:
   m_ObjectHideFlags: 0
@@ -1239,6 +1239,7 @@ MonoBehaviour:
   speed: 0
   dieMenu: {fileID: 1397103779}
   player: {fileID: 647124691}
+  bigDDong: 0
 --- !u!212 &647124695
 SpriteRenderer:
   m_ObjectHideFlags: 0

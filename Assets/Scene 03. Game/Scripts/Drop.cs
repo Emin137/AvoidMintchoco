@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DDong : MonoBehaviour
+public class Drop : MonoBehaviour
 {
     private float gravity;
     private float mVelocity = 0f;
