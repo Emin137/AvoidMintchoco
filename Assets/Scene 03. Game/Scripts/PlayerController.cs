@@ -21,14 +21,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Image debuffSkillImage;
     public float speed;
     private float edge = 2.5f;
+    private float cooltime;
+    private float teleportRange = 1.7f;
+    private int shield, coinAdd;
     public GameObject dieMenu;
     public GameObject player;
-    private int shield, coinAdd;
     public List<SkillData> skillData;
     private bool skillused = false;
     private bool isLeft = false;
-    private float cooltime;
-    private float teleportRange = 1.7f;
+    private bool dontDie = false;
+    private bool playerMove = true;
+
     
 
     private void Awake()
@@ -37,6 +40,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Start()
     {
+        Debug.Log(player.GetComponent<SpriteRenderer>());
         speed = 3.0f;
         coinAdd = 1;
         shield = 0;
@@ -92,24 +96,27 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        if (horizontal < 0)
+        if (playerMove == true)
         {
-            isLeft = true;
-        }
-        if (horizontal > 0)
-        {
-            isLeft = false;
-        }
-        transform.Translate(horizontal * Time.deltaTime * speed, 0f, 0f);
+            float horizontal = Input.GetAxis("Horizontal");
+            if (horizontal < 0)
+            {
+                isLeft = true;
+            }
+            if (horizontal > 0)
+            {
+                isLeft = false;
+            }
+            transform.Translate(horizontal * Time.deltaTime * speed, 0f, 0f);
 
-        if (transform.position.x <= -edge)
-        {
-            transform.position = new Vector2(-edge, transform.position.y);
-        }
-        else if (transform.position.x >= edge)
-        {
-            transform.position = new Vector2(edge, transform.position.y);
+            if (transform.position.x <= -edge)
+            {
+                transform.position = new Vector2(-edge, transform.position.y);
+            }
+            else if (transform.position.x >= edge)
+            {
+                transform.position = new Vector2(edge, transform.position.y);
+            }
         }
         
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -132,13 +139,13 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name == "ddong(Clone)" && shield == 0)
+        if (collision.name == "ddong(Clone)" && shield == 0 && dontDie == false)
         {
             dieMenu.SetActive(true);
             ClearSkill();
             Time.timeScale = 0f;
         } 
-        else if (collision.name == "ddong(Clone)" && shield == 1)
+        else if (collision.name == "ddong(Clone)" && shield == 1 && dontDie == false)
         {
             shield -= 1;
         }
@@ -168,6 +175,10 @@ public class PlayerController : MonoBehaviour
         if (skillused == false && skillData[0].skillName == "¾óÀ½¶¯!")
         {
             Debug.Log("¾óÀ½¶¯!");
+            dontDie = true;
+            playerMove = false;
+            player.GetComponent<SpriteRenderer>().color = Color.blue;
+            StartCoroutine(WaitForIt());
             skillButton.image.fillAmount = 0;
             skillused = true;
         }   
@@ -190,5 +201,12 @@ public class PlayerController : MonoBehaviour
     public void ClearSkill()
     {
         skillData.Clear();
+    }
+    IEnumerator WaitForIt()
+    {
+        yield return new WaitForSeconds(2.0f);
+        player.GetComponent<SpriteRenderer>().color = Color.white;
+        dontDie = false;
+        playerMove = true;
     }
 }
