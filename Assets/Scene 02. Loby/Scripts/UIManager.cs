@@ -11,11 +11,14 @@ public class UIManager : MonoBehaviour
     public Button slotAgainButton;
     public Button setButton;
     public Button rankButton;
+    public Button rankCloseButton;
+    public Button setCloseButton;
     public GameObject panelGameReady;
     public GameObject panelLoby;
     public GameObject panelSet;
     public GameObject panelRank;
     public GameObject panelToolTip;
+    public GameObject rankPanel;
     public Text skillNameText;
     public Text skillDescriptionText;
     private static UIManager instance;
@@ -35,9 +38,11 @@ public class UIManager : MonoBehaviour
     {
         gameReadyButton.onClick.AddListener(SetActivePanelGameReady);
         setButton.onClick.AddListener(SetActivePanelSet);
-        rankButton.onClick.AddListener(SetActivePanelRank);
+        rankButton.onClick.AddListener(ShowPanelRank);
+        rankCloseButton.onClick.AddListener(HidePanelRank);
         gameStartButton.onClick.AddListener(SceneTrans);
         slotAgainButton.onClick.AddListener(SlotAgain);
+        setCloseButton.onClick.AddListener(HidePanelSet);
         gameStartButton.interactable = false;
         slotAgainButton.interactable = false;
     }
@@ -51,12 +56,6 @@ public class UIManager : MonoBehaviour
     private void SetActivePanelSet()
     {
         panelSet.SetActive(true);
-        panelLoby.SetActive(false);
-    }
-
-    private void SetActivePanelRank()
-    {
-        panelRank.SetActive(true);
         panelLoby.SetActive(false);
     }
 
@@ -91,5 +90,23 @@ public class UIManager : MonoBehaviour
     public void HidePanelToolTip()
     {
         panelToolTip.SetActive(false);
+    }
+
+    public void ShowPanelRank()
+    {
+        panelRank.SetActive(true);
+        panelLoby.SetActive(false);
+    }
+
+    public void HidePanelRank()
+    {
+        panelRank.SetActive(false);
+        panelLoby.SetActive(true);
+    }
+
+    public void HidePanelSet()
+    {
+        panelSet.SetActive(false);
+        panelLoby.SetActive(true);
     }
 }

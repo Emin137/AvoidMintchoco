@@ -1,0 +1,24 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerData : MonoBehaviour
+{
+   
+    public string playerCode; // 고유 코드값
+    public string playerName; // 이름
+    public Sprite playerSprite; // 아이콘
+    public Sprite dropSprite; // 아이콘
+    public bool nowChoose;
+
+
+    // 아이템 생성자
+    public PlayerData(string code, string name, bool choose)
+    {
+        playerCode = code;
+        playerName = name;
+        playerSprite = Resources.Load<Sprite>($"Scene 03. Game/Player{code}/Player");
+        dropSprite = Resources.Load<Sprite>($"Scene 03. Game/Player{code}/Drop");
+        nowChoose = false;
+    }
+}
