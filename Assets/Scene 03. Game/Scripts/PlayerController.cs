@@ -16,6 +16,9 @@ public class PlayerController : MonoBehaviour
     }
     [SerializeField] Button skillButton;
     [SerializeField] Image skillImage;
+    [SerializeField] Image skillImageBG;
+    [SerializeField] Image passiveSkillImage;
+    [SerializeField] Image debuffSkillImage;
     public float speed;
     private float edge = 2.5f;
     public GameObject dieMenu;
@@ -23,7 +26,10 @@ public class PlayerController : MonoBehaviour
     private int shield, coinAdd;
     public List<SkillData> skillData;
     private bool skillused = false;
+    private bool isLeft = false;
     private float cooltime;
+    private float teleportRange = 1.7f;
+    
 
     private void Awake()
     {
@@ -80,11 +86,21 @@ public class PlayerController : MonoBehaviour
             Debug.Log(skillData[2].skillName);
         }
         skillImage.sprite = skillData[0].skillSprite;
+        skillImageBG.sprite = skillData[0].skillSprite;
+        passiveSkillImage.sprite = skillData[1].skillSprite;
+        debuffSkillImage.sprite = skillData[2].skillSprite;
     }
     private void Update()
     {
         float horizontal = Input.GetAxis("Horizontal");
-
+        if (horizontal < 0)
+        {
+            isLeft = true;
+        }
+        if (horizontal > 0)
+        {
+            isLeft = false;
+        }
         transform.Translate(horizontal * Time.deltaTime * speed, 0f, 0f);
 
         if (transform.position.x <= -edge)
@@ -138,7 +154,14 @@ public class PlayerController : MonoBehaviour
         if (skillused == false && skillData[0].skillName == "Á¡¸ê")
         {
             Debug.Log("Á¡¸ê!!");
-
+            if (isLeft == true)
+            {
+                transform.position = new Vector2(transform.position.x - teleportRange, transform.position.y);
+            }
+            if (isLeft == false)
+            {
+                transform.position = new Vector2(transform.position.x + teleportRange, transform.position.y);
+            }
             skillButton.image.fillAmount = 0;
             skillused = true;
         }

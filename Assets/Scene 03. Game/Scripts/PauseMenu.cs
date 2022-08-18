@@ -54,6 +54,7 @@ public class PauseMenu : MonoBehaviour
     }
     private void Quit()
     {
-        Debug.Log("미구현");
+        Debug.Log("Application.Quit()를 호출합니다.");
+        Application.Quit();
     }
 }
