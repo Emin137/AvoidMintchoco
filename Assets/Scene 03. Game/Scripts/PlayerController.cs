@@ -149,7 +149,7 @@ public class PlayerController : MonoBehaviour
             ClearSkill();
             Time.timeScale = 0f;
         } 
-        else if (collision.name == "Drop(Clone)" && shield == 1 && dontDie == false || collision.name == "BigDrop(Clone)" && shield == 1 && dontDie == false)
+        else if (collision.name == "Drop(Clone)" && shield == 1 && dontDie == false || collision.name == "BigDrop(Clone)" && shield == 0 && dontDie == false)
         {
             shield -= 1;
         }
