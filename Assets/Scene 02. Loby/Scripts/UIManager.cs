@@ -10,22 +10,19 @@ public class UIManager : MonoBehaviour
     public Button gameStartButton;
     public Button slotAgainButton;
     public Button setButton;
-    public Button rankButton;
-    public Button rankCloseButton;
     public Button setCloseButton;
     public GameObject panelGameReady;
     public GameObject panelLoby;
     public GameObject panelSet;
-    public GameObject panelRank;
     public GameObject panelToolTip;
-    public GameObject rankPanel;
     public GameObject panelChoosePlayer;
-    public GameObject panelNeedChoose;
     public Text skillNameText;
     public Text skillDescriptionText;
     public Text coinNumText;
+    public Text userNameText;
     private int coin = 0;
     private int count = 0;
+    private string name;
     private static UIManager instance;
     public static UIManager Instance
     {
@@ -44,18 +41,15 @@ public class UIManager : MonoBehaviour
     {
         gameReadyButton.onClick.AddListener(SetActivePanelGameReady);
         setButton.onClick.AddListener(SetActivePanelSet);
-        rankButton.onClick.AddListener(ShowPanelRank);
-        rankCloseButton.onClick.AddListener(HidePanelRank);
         gameStartButton.onClick.AddListener(SceneTrans);
         slotAgainButton.onClick.AddListener(SlotAgain);
         setCloseButton.onClick.AddListener(HidePanelSet);
         gameStartButton.interactable = false;
         slotAgainButton.interactable = false;
         gameReadyButton.interactable = false;
-        for (int i = 0; i < ScoreManager.GetScoreData().Count; i++)
-        {
-            coin += ScoreManager.GetScoreData()[i].coin;
-        }
+        name = GameStartManager.name;
+        userNameText.text = name;
+        coin = PlayerPrefs.GetInt(name);
     }
 
     private void Update()
@@ -88,7 +82,8 @@ public class UIManager : MonoBehaviour
 
     public void SetActiveSlotAgainButton()
     {
-        slotAgainButton.interactable = true;
+        if(GameStartManager.GetUserCoin()>30)
+            slotAgainButton.interactable = true;
     }
 
     public void SlotAgain()
@@ -107,18 +102,6 @@ public class UIManager : MonoBehaviour
     public void HidePanelToolTip()
     {
         panelToolTip.SetActive(false);
-    }
-
-    public void ShowPanelRank()
-    {
-        panelRank.SetActive(true);
-        panelLoby.SetActive(false);
-    }
-
-    public void HidePanelRank()
-    {
-        panelRank.SetActive(false);
-        panelLoby.SetActive(true);
     }
 
     public void HidePanelSet()

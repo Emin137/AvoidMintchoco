@@ -33,8 +33,10 @@ public class PlayerController : MonoBehaviour
     private bool playerMove = true;
     public bool bigDDong = false;
     private SpriteRenderer playerImage;
-
-    
+    public AudioSource audioSource;
+    public AudioClip flash;
+    public AudioClip ice;
+    public AudioClip snap;
 
     private void Awake()
     {
@@ -54,49 +56,40 @@ public class PlayerController : MonoBehaviour
         skillData = SkillManager.GetResultSkill();
         if (skillData[0].skillName == "Á¡¸ê")
         {
-            Debug.Log(skillData[0].skillName);
             cooltime = 5.0f;
         }
         if (skillData[0].skillName == "¾óÀ½¶¯!")
         {
-            Debug.Log(skillData[0].skillName);
             cooltime = 5.0f;
         }
         if (skillData[0].skillName == "ÇÎ°Å½º³À")
         {
-            Debug.Log(skillData[0].skillName);
             cooltime = 5.0f;
         }
         if (skillData[1].skillName == "¿øÄÚ")
         {
             shield += 1;
-            Debug.Log(skillData[1].skillName);
         }
         if (skillData[1].skillName == "ÀÌµ¿¼Óµµ Áõ°¡")
         {
             speed *= 2;
-            Debug.Log(skillData[1].skillName);
         }
         if (skillData[1].skillName == "¹¯°í ´õºí·Î °¡")
         {
             coinAdd *= 2;
-            Debug.Log(skillData[1].skillName);
         }
         if (skillData[2].skillName == "¹«¼öÇÑ ¶Ë")
         {
             DropGenerator.Instance.ddongCreatTime = 0.15f;
-            Debug.Log(skillData[2].skillName);
         }
         if (skillData[2].skillName == "°Å´ëÇÑ ¶Ë")
         {
             bigDDong = true;
-            Debug.Log(skillData[2].skillName);
         }
         if (skillData[2].skillName == "³ª´Â ºÎÀÚ´Ù")
         {
             CoinGenerator.Instance.coinCreateTime = 0.60f;
             coinAdd *= 2;
-            Debug.Log(skillData[2].skillName);
         }
         skillImage.sprite = skillData[0].skillSprite;
         skillImageBG.sprite = skillData[0].skillSprite;
@@ -138,8 +131,8 @@ public class PlayerController : MonoBehaviour
         }
         if (skillused == true)
         {
-            skillButton.image.fillAmount += Time.deltaTime / cooltime;
-            if (skillButton.image.fillAmount >= 1)
+            skillImage.fillAmount += Time.deltaTime / cooltime;
+            if (skillImage.fillAmount >= 1)
             {
                 skillused = false;
             }
@@ -170,7 +163,6 @@ public class PlayerController : MonoBehaviour
     {
         if (skillused == false && skillData[0].skillName == "Á¡¸ê")
         {
-            Debug.Log("Á¡¸ê!!");
             if (isLeft == true)
             {
                 transform.position = new Vector2(transform.position.x - teleportRange, transform.position.y);
@@ -179,8 +171,10 @@ public class PlayerController : MonoBehaviour
             {
                 transform.position = new Vector2(transform.position.x + teleportRange, transform.position.y);
             }
-            skillButton.image.fillAmount = 0;
+            skillImage.fillAmount = 0;
             skillused = true;
+            audioSource.clip = flash;
+            audioSource.Play();
         }
         if (skillused == false && skillData[0].skillName == "¾óÀ½¶¯!")
         {
@@ -189,8 +183,10 @@ public class PlayerController : MonoBehaviour
             playerMove = false;
             player.GetComponent<SpriteRenderer>().color = Color.blue;
             StartCoroutine(WaitForIt());
-            skillButton.image.fillAmount = 0;
+            skillImage.fillAmount = 0;
             skillused = true;
+            audioSource.clip = ice;
+            audioSource.Play();
         }   
         if (skillused == false && skillData[0].skillName == "ÇÎ°Å½º³À")
         {
@@ -204,8 +200,10 @@ public class PlayerController : MonoBehaviour
                     }
                 }
             }
-            skillButton.image.fillAmount = 0;
+            skillImage.fillAmount = 0;
             skillused = true;
+            audioSource.clip = snap;
+            audioSource.Play();
         }
     }
     public void ClearSkill()

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerData : MonoBehaviour
+public class PlayerData
 {
    
     public string playerCode; // 고유 코드값

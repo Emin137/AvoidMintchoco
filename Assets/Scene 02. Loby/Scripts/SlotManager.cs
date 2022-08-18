@@ -18,6 +18,7 @@ public class SlotManager : MonoBehaviour,IPointerEnterHandler,IPointerExitHandle
     private List<string> listSkillName = new List<string>();
     public SkillData resultSkillData;
     private bool endRullet = false;
+    private string name = GameStartManager.name;
 
     private void Awake()
     {
@@ -27,6 +28,7 @@ public class SlotManager : MonoBehaviour,IPointerEnterHandler,IPointerExitHandle
 
     private void RulletAgain()
     {
+        GameStartManager.SetUserCoin(GameStartManager.GetUserCoin() - 30);
         if (SkillManager.GetResultSkill().Count == 3)
             SkillManager.GetResultSkill().Clear();
         RulletSlot();

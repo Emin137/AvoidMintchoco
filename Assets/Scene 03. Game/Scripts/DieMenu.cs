@@ -30,6 +30,7 @@ public class DieMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         ScoreManager.AddScore(new ScoreData(Land.Instance.coin, Land.Instance.currentScore));
+        PlayerPrefs.SetInt(GameStartManager.name, PlayerPrefs.GetInt(name)+Land.Instance.coin);
         PlayerManager.GetPlayerList().Clear();
         SceneManager.LoadScene("Scene02. Loby");
     }

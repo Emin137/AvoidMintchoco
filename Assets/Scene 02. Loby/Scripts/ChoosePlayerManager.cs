@@ -11,7 +11,7 @@ public class ChoosePlayerManager : MonoBehaviour
     public Button rightButton;
     public Button leftButton;
     public Text textPlayerName;
-    private int numIndex = 0;
+    private int numIndex = 1;
 
     private void Awake()
     {
