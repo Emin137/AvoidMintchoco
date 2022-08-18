@@ -4,16 +4,29 @@ using UnityEngine;
 
 public class DDongGenerator : MonoBehaviour
 {
-    const float CREATE_INTERVAL = 0.33f;
+    private static DDongGenerator instance;
+    public static DDongGenerator Instance
+    {
+        get
+        {
+            if (instance == null) instance = FindObjectOfType<DDongGenerator>();
+            return instance;
+        }
+    }
+    public float ddongCreatTime;
     float mCreatTime = 0;
     float mTotalTIme = 0;
 
-    float mNextCreateInterval = CREATE_INTERVAL;
+    float mNextCreateInterval;
 
     int mPhase = 1;
 
     public GameObject mDong;
-
+    private void Start()
+    {
+        ddongCreatTime = 0.3f;
+        mNextCreateInterval = ddongCreatTime;
+    }
     private void Update()
     {
         mTotalTIme += Time.deltaTime;
@@ -21,7 +34,7 @@ public class DDongGenerator : MonoBehaviour
         if (mCreatTime > mNextCreateInterval)
         {
             mCreatTime = 0;
-            mNextCreateInterval = CREATE_INTERVAL - (0.005f * mTotalTIme);
+            mNextCreateInterval = ddongCreatTime - (0.005f * mTotalTIme);
             if (mNextCreateInterval < 0.005f)
             {
                 mNextCreateInterval = 0.005f;

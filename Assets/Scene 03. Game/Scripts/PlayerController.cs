@@ -67,6 +67,7 @@ public class PlayerController : MonoBehaviour
         }
         if (skillData[2].skillName == "¹«¼öÇÑ ¶Ë")
         {
+            DDongGenerator.Instance.ddongCreatTime = 0.15f;
             Debug.Log(skillData[2].skillName);
         }
         if (skillData[2].skillName == "°Å´ëÇÑ ¶Ë")
@@ -75,6 +76,7 @@ public class PlayerController : MonoBehaviour
         }
         if (skillData[2].skillName == "³ª´Â ºÎÀÚ´Ù")
         {
+            CoinGenerator.Instance.coinCreateTime = 0.60f;
             Debug.Log(skillData[2].skillName);
         }
         skillImage.sprite = skillData[0].skillSprite;
@@ -102,7 +104,7 @@ public class PlayerController : MonoBehaviour
         {
             UseSkill();
         }
-        if (skillused)
+        if (skillused == true)
         {
             skillButton.image.fillAmount += Time.deltaTime / cooltime;
             if (skillButton.image.fillAmount >= 1)
@@ -114,17 +116,17 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.name);
         if (collision.name == "ddong(Clone)" && shield == 0)
         {
             dieMenu.SetActive(true);
             ClearSkill();
             Time.timeScale = 0f;
-        }
+        } 
         else if (collision.name == "ddong(Clone)" && shield == 1)
         {
             shield -= 1;
         }
+        
         if (collision.name == "coin(Clone)")
         {
             Land.Instance.HandleCoin(coinAdd);
@@ -136,6 +138,7 @@ public class PlayerController : MonoBehaviour
         if (skillused == false && skillData[0].skillName == "Á¡¸ê")
         {
             Debug.Log("Á¡¸ê!!");
+
             skillButton.image.fillAmount = 0;
             skillused = true;
         }
@@ -144,20 +147,19 @@ public class PlayerController : MonoBehaviour
             Debug.Log("¾óÀ½¶¯!");
             skillButton.image.fillAmount = 0;
             skillused = true;
-        }
+        }   
         if (skillused == false && skillData[0].skillName == "ÇÎ°Å½º³À")
         {
             GameObject[] forDestroy = GameObject.FindGameObjectsWithTag("ddong");
             {
                 for (int i = 0; i < forDestroy.Length; i++)
                 {
-                    if (forDestroy[i].transform.localPosition.y <= 1.4f)
+                    if (forDestroy[i].transform.localPosition.y <= 1.4f) // ¶Ë »èÁ¦ ¹üÀ§
                     {
                         GameObject.Destroy(forDestroy[i]);
                     }
                 }
             }
-
             skillButton.image.fillAmount = 0;
             skillused = true;
         }

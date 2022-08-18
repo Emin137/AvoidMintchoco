@@ -11,7 +11,7 @@ public class DDong : MonoBehaviour
 
     private void Start()
     {
-        gravity = 1.0f;
+        gravity = 0.7f;
     }
     void Update()
     {
@@ -26,9 +26,12 @@ public class DDong : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name == "Land")
+        if (collision.name != "coin(Clone)")
         {
-            Land.Instance.HandleScore();
+            if (collision.name == "Land")
+            {
+                Land.Instance.HandleScore();
+            }
             Destroy(this.gameObject);
         }
     }

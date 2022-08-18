@@ -10,7 +10,7 @@ public class Coin : MonoBehaviour
 
     private void Start()
     {
-        gravity = 1.0f;
+        gravity = 0.7f;
     }
     void Update()
     {
@@ -24,6 +24,9 @@ public class Coin : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(this.gameObject);
+        if (collision.name != "ddong(Clone)")
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

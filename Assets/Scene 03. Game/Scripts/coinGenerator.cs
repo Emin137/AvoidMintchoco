@@ -4,16 +4,29 @@ using UnityEngine;
 
 public class CoinGenerator : MonoBehaviour
 {
-    const float CREATE_INTERVAL = 0.82f;
+    private static CoinGenerator instance;
+    public static CoinGenerator Instance
+    {
+        get
+        {
+            if (instance == null) instance = FindObjectOfType<CoinGenerator>();
+            return instance;
+        }
+    }
+    public float coinCreateTime;
     float mCreatTime = 0;
     float mTotalTIme = 0;
 
-    float mNextCreateInterval = CREATE_INTERVAL;
+    float mNextCreateInterval;
 
     int mPhase = 1;
 
     public GameObject coin;
-
+    private void Start()
+    {
+        coinCreateTime = 0.82f;
+        mNextCreateInterval = coinCreateTime;
+    }
     private void Update()
     {
         mTotalTIme += Time.deltaTime;
@@ -21,7 +34,7 @@ public class CoinGenerator : MonoBehaviour
         if (mCreatTime > mNextCreateInterval)
         {
             mCreatTime = 0;
-            mNextCreateInterval = CREATE_INTERVAL - (0.005f * mTotalTIme);
+            mNextCreateInterval = coinCreateTime - (0.005f * mTotalTIme);
             if (mNextCreateInterval < 0.005f)
             {
                 mNextCreateInterval = 0.005f;
