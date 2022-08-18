@@ -19,6 +19,7 @@ public class ChoosePlayerManager : MonoBehaviour
         dropImage.sprite = PlayerManager.GetPlayerList()[numIndex].dropSprite;
         textPlayerName.text = PlayerManager.GetPlayerList()[numIndex].playerName;
         chooseButton.interactable = false;
+        PlayerManager.GetPlayerList()[0].nowChoose = true;
         rightButton.onClick.AddListener(Right);
         leftButton.onClick.AddListener(Left);
         chooseButton.onClick.AddListener(Choose);

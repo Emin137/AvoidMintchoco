@@ -17,8 +17,8 @@ public class PlayerData : MonoBehaviour
     {
         playerCode = code;
         playerName = name;
-        playerSprite = Resources.Load<Sprite>($"Scene 03. Game/Player{code}/Player");
-        dropSprite = Resources.Load<Sprite>($"Scene 03. Game/Player{code}/Drop");
+        playerSprite = Resources.Load<Sprite>($"Scene 03. Game/Sprites/Player{code}/Player");
+        dropSprite = Resources.Load<Sprite>($"Scene 03. Game/Sprites/Player{code}/Drop");
         nowChoose = false;
     }
 }

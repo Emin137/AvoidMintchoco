@@ -23,10 +23,19 @@ public class DropGenerator : MonoBehaviour
 
     public GameObject mDrop;
     public GameObject BigmDrop;
+    private PlayerData PlayerData;
+
     private void Start()
     {
         ddongCreatTime = 0.3f;
         mNextCreateInterval = ddongCreatTime;
+        for (int i = 0; i < 3; i++)
+        {
+            if (PlayerManager.GetPlayerList()[i].nowChoose)
+                PlayerData = PlayerManager.GetPlayerList()[i];
+        }
+        mDrop = Resources.Load<GameObject>($"Scene 03. Game/Player{PlayerData.playerCode}/Drop");
+        BigmDrop = Resources.Load<GameObject>($"Scene 03. Game/Player{PlayerData.playerCode}/BigDrop");
     }
     private void Update()
     {

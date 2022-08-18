@@ -19,6 +19,7 @@ public class UIManager : MonoBehaviour
     public GameObject panelRank;
     public GameObject panelToolTip;
     public GameObject rankPanel;
+    public GameObject panelChoosePlayer;
     public Text skillNameText;
     public Text skillDescriptionText;
     private static UIManager instance;
@@ -51,6 +52,7 @@ public class UIManager : MonoBehaviour
     {
         panelGameReady.SetActive(true);
         panelLoby.SetActive(false);
+        panelChoosePlayer.SetActive(false);
     }
 
     private void SetActivePanelSet()

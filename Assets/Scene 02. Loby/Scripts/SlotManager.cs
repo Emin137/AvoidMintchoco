@@ -16,13 +16,20 @@ public class SlotManager : MonoBehaviour,IPointerEnterHandler,IPointerExitHandle
     public SkillData.SkillType skillType;
     public Button rulletAgainButton;
     private List<string> listSkillName = new List<string>();
-    private SkillData resultSkillData;
+    public SkillData resultSkillData;
     private bool endRullet = false;
 
     private void Awake()
     {
         RulletSlot();
-        rulletAgainButton.onClick.AddListener(RulletSlot);
+        rulletAgainButton.onClick.AddListener(RulletAgain);
+    }
+
+    private void RulletAgain()
+    {
+        if (SkillManager.GetResultSkill().Count == 3)
+            SkillManager.GetResultSkill().Clear();
+        RulletSlot();
     }
 
     public void RulletSlot()

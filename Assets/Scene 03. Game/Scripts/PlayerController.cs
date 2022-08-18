@@ -32,16 +32,22 @@ public class PlayerController : MonoBehaviour
     private bool dontDie = false;
     private bool playerMove = true;
     public bool bigDDong = false;
+    private SpriteRenderer playerImage;
 
     
 
     private void Awake()
     {
         skillButton.onClick.AddListener(UseSkill);
+        playerImage = GetComponent<SpriteRenderer>();
+        for (int i = 0; i < 2; i++)
+        {
+            if (PlayerManager.GetPlayerList()[i].nowChoose)
+                playerImage.sprite = PlayerManager.GetPlayerList()[i].playerSprite;
+        }
     }
     private void Start()
     {
-        Debug.Log(player.GetComponent<SpriteRenderer>());
         speed = 3.0f;
         coinAdd = 1;
         shield = 0;
