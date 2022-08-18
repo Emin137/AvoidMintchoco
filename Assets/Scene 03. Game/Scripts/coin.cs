@@ -24,7 +24,7 @@ public class Coin : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name != "ddong(Clone)" || collision.name != "Bigddong(Clone)")
+        if (collision.name != "Drop(Clone)" || collision.name != "BigDrop(Clone)")
         {
             Destroy(this.gameObject);
         }

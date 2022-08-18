@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
         }
         if (skillData[2].skillName == "¹«¼öÇÑ ¶Ë")
         {
-            DDongGenerator.Instance.ddongCreatTime = 0.15f;
+            DropGenerator.Instance.ddongCreatTime = 0.15f;
             Debug.Log(skillData[2].skillName);
         }
         if (skillData[2].skillName == "°Å´ëÇÑ ¶Ë")
@@ -142,13 +142,14 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name == "ddong(Clone)" && shield == 0 && dontDie == false || collision.name == "Bigddong(Clone)" && shield == 0 && dontDie == false)
+        Debug.Log(collision.name);
+        if (collision.name == "Drop(Clone)" && shield == 0 && dontDie == false || collision.name == "BigDrop(Clone)" && shield == 0 && dontDie == false)
         {
             dieMenu.SetActive(true);
             ClearSkill();
             Time.timeScale = 0f;
         } 
-        else if (collision.name == "ddong(Clone)" && shield == 1 && dontDie == false || collision.name == "Bigddong(Clone)" && shield == 0 && dontDie == false)
+        else if (collision.name == "Drop(Clone)" && shield == 1 && dontDie == false || collision.name == "BigDrop(Clone)" && shield == 0 && dontDie == false)
         {
             shield -= 1;
         }

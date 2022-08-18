@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DDongGenerator : MonoBehaviour
+public class DropGenerator : MonoBehaviour
 {
-    private static DDongGenerator instance;
-    public static DDongGenerator Instance
+    private static DropGenerator instance;
+    public static DropGenerator Instance
     {
         get
         {
-            if (instance == null) instance = FindObjectOfType<DDongGenerator>();
+            if (instance == null) instance = FindObjectOfType<DropGenerator>();
             return instance;
         }
     }
@@ -21,8 +21,8 @@ public class DDongGenerator : MonoBehaviour
 
     int mPhase = 1;
 
-    public GameObject mDong;
-    public GameObject BigmDong;
+    public GameObject mDrop;
+    public GameObject BigmDrop;
     private void Start()
     {
         ddongCreatTime = 0.3f;
@@ -60,12 +60,12 @@ public class DDongGenerator : MonoBehaviour
         if (PlayerController.Instance.bigDDong == false)
         {
             float x = Random.Range(-2.5f, 2.5f);
-            createObject(mDong, new Vector3(x, y, 0), Quaternion.identity);
+            createObject(mDrop, new Vector3(x, y, 0), Quaternion.identity);
         }
         if (PlayerController.Instance.bigDDong == true)
         {
             float x = Random.Range(-2.5f, 2.5f);
-            createObject(BigmDong, new Vector3(x, y, 0), Quaternion.identity);
+            createObject(BigmDrop, new Vector3(x, y, 0), Quaternion.identity);
         }
     }
 
