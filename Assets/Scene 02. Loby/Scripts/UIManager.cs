@@ -49,11 +49,11 @@ public class UIManager : MonoBehaviour
         gameReadyButton.interactable = false;
         name = GameStartManager.name;
         userNameText.text = name;
-        coin = PlayerPrefs.GetInt(name);
     }
 
     private void Update()
     {
+        coin = PlayerPrefs.GetInt(name);
         coinNumText.text = $"Coin : {coin}";
     }
 
