@@ -20,8 +20,12 @@ public class UIManager : MonoBehaviour
     public GameObject panelToolTip;
     public GameObject rankPanel;
     public GameObject panelChoosePlayer;
+    public GameObject panelNeedChoose;
     public Text skillNameText;
     public Text skillDescriptionText;
+    public Text coinNumText;
+    private int coin = 0;
+    private int count = 0;
     private static UIManager instance;
     public static UIManager Instance
     {
@@ -34,6 +38,7 @@ public class UIManager : MonoBehaviour
             return instance;
         }
     }
+    
 
     private void Awake()
     {
@@ -46,6 +51,16 @@ public class UIManager : MonoBehaviour
         setCloseButton.onClick.AddListener(HidePanelSet);
         gameStartButton.interactable = false;
         slotAgainButton.interactable = false;
+        gameReadyButton.interactable = false;
+        for (int i = 0; i < ScoreManager.GetScoreData().Count; i++)
+        {
+            coin += ScoreManager.GetScoreData()[i].coin;
+        }
+    }
+
+    private void Update()
+    {
+        coinNumText.text = $"Coin : {coin}";
     }
 
     private void SetActivePanelGameReady()
@@ -63,7 +78,7 @@ public class UIManager : MonoBehaviour
 
     private void SceneTrans()
     {
-        SceneManager.LoadScene("Scene03. Game");
+       SceneManager.LoadScene("Scene03. Game");
     }
 
     public void SetActiveStartButton()

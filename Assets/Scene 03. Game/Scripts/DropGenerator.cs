@@ -34,8 +34,8 @@ public class DropGenerator : MonoBehaviour
             if (PlayerManager.GetPlayerList()[i].nowChoose)
                 PlayerData = PlayerManager.GetPlayerList()[i];
         }
-        mDrop = Resources.Load<GameObject>($"Scene 03. Game/Player{PlayerData.playerCode}/Drop");
-        BigmDrop = Resources.Load<GameObject>($"Scene 03. Game/Player{PlayerData.playerCode}/BigDrop");
+        mDrop = Resources.Load<GameObject>($"Scene 03. Game/Prefabs/Player{PlayerData.playerCode}/Drop");
+        BigmDrop = Resources.Load<GameObject>($"Scene 03. Game/Prefabs/Player{PlayerData.playerCode}/BigDrop");
     }
     private void Update()
     {

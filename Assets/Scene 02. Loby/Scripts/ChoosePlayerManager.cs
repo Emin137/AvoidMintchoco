@@ -18,8 +18,7 @@ public class ChoosePlayerManager : MonoBehaviour
         playerImage.sprite = PlayerManager.GetPlayerList()[numIndex].playerSprite;
         dropImage.sprite = PlayerManager.GetPlayerList()[numIndex].dropSprite;
         textPlayerName.text = PlayerManager.GetPlayerList()[numIndex].playerName;
-        chooseButton.interactable = false;
-        PlayerManager.GetPlayerList()[0].nowChoose = true;
+        chooseButton.interactable = true;
         rightButton.onClick.AddListener(Right);
         leftButton.onClick.AddListener(Left);
         chooseButton.onClick.AddListener(Choose);
@@ -74,6 +73,7 @@ public class ChoosePlayerManager : MonoBehaviour
                 PlayerManager.GetPlayerList()[i].nowChoose = true;
         }
         chooseButton.interactable = false;
+        UIManager.Instance.gameReadyButton.interactable = true;
     }
 
 }

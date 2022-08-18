@@ -13,7 +13,7 @@ public class PlayerData : MonoBehaviour
 
 
     // 아이템 생성자
-    public PlayerData(string code, string name, bool choose)
+    public PlayerData(string code, string name)
     {
         playerCode = code;
         playerName = name;

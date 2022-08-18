@@ -29,6 +29,8 @@ public class DieMenu : MonoBehaviour
     private void Loby()
     {
         Time.timeScale = 1f;
+        ScoreManager.AddScore(new ScoreData(Land.Instance.coin, Land.Instance.currentScore));
+        PlayerManager.GetPlayerList().Clear();
         SceneManager.LoadScene("Scene02. Loby");
     }
 }
