@@ -142,13 +142,13 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name == "ddong(Clone)" || collision.name == "Bigddong(Clone)" && shield == 0 && dontDie == false)
+        if (collision.name == "ddong(Clone)" && shield == 0 && dontDie == false || collision.name == "Bigddong(Clone)" && shield == 0 && dontDie == false)
         {
             dieMenu.SetActive(true);
             ClearSkill();
             Time.timeScale = 0f;
         } 
-        else if (collision.name == "ddong(Clone)" || collision.name == "Bigddong(Clone)" && shield == 1 && dontDie == false)
+        else if (collision.name == "ddong(Clone)" && shield == 1 && dontDie == false || collision.name == "Bigddong(Clone)" && shield == 0 && dontDie == false)
         {
             shield -= 1;
         }
