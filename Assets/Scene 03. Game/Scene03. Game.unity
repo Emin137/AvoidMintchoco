@@ -1635,6 +1635,7 @@ MonoBehaviour:
   ice: {fileID: 8300000, guid: d99bac923ee095a43a87c417e10928eb, type: 3}
   snap: {fileID: 8300000, guid: a4b3bef786d8a6d49a43c9b8b6bdcfa4, type: 3}
   die: {fileID: 8300000, guid: 748bfaff907ecaa4b9ead1b20071465f, type: 3}
+  thanos: {fileID: 8300000, guid: 270bf8a1d13188a489cfa2d20dbd925b, type: 3}
 --- !u!212 &647124695
 SpriteRenderer:
   m_ObjectHideFlags: 0

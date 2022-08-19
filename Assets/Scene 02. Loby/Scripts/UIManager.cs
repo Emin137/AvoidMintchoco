@@ -22,8 +22,7 @@ public class UIManager : MonoBehaviour
     public Text userNameText;
     public Toggle musicToggle;
     public Toggle soundToggle;
-    public AudioSource audioSource;
-    public AudioClip error;
+   
     
 
     private int coin = 0;
