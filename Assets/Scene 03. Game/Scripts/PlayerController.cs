@@ -65,6 +65,7 @@ public class PlayerController : MonoBehaviour
                 {
                     animator.SetTrigger("03");
                     gameObject.transform.localPosition = new Vector2(0, -4);
+                    playerShield.transform.localPosition = new Vector2(0, 0.5f);
                     gameObject.GetComponent<BoxCollider2D>().offset = new Vector2(0.03527361f, 0.4760385f);
                     gameObject.GetComponent<BoxCollider2D>().size = new Vector2(0.8211522f, 0.9184052f);
                 }
