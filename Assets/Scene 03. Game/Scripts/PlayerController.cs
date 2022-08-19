@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour
         {
             cooltime = 5.0f;
         }
-        if (skillData[0].skillName == "얼음땡!")
+        if (skillData[0].skillName == "얼음~땡!")
         {
             cooltime = 5.0f;
         }
@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour
         {
             cooltime = 5.0f;
         }
-        if (skillData[1].skillName == "원코")
+        if (skillData[1].skillName == "원코국룰")
         {
             shield += 1;
         }
@@ -97,15 +97,15 @@ public class PlayerController : MonoBehaviour
         {
             speed *= 2;
         }
-        if (skillData[1].skillName == "묻고 더블로 가")
+        if (skillData[1].skillName == "묻고 더블로 가!")
         {
             coinAdd *= 2;
         }
-        if (skillData[2].skillName == "무수한 똥")
+        if (skillData[2].skillName == "무수한 민초")
         {
             DropGenerator.Instance.ddongCreatTime = 0.15f;
         }
-        if (skillData[2].skillName == "거대한 똥")
+        if (skillData[2].skillName == "사이즈 업")
         {
             bigDDong = true;
         }
@@ -211,7 +211,7 @@ public class PlayerController : MonoBehaviour
             audioSource.clip = flash;
                 audioSource.Play();
         }
-        if (skillused == false && skillData[0].skillName == "얼음땡!")
+        if (skillused == false && skillData[0].skillName == "얼음~땡!")
         {
             Debug.Log("얼음땡!");
             dontDie = true;
