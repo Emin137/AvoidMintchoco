@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     private int shield, coinAdd;
     public GameObject dieMenu;
     public GameObject player;
+    public GameObject playerShield;
     public List<SkillData> skillData;
     private bool skillused = false;
     private bool isLeft = false;
@@ -46,7 +47,6 @@ public class PlayerController : MonoBehaviour
         animator = gameObject.GetComponent<Animator>();
         skillButton.onClick.AddListener(UseSkill);
         playerImage = GetComponent<SpriteRenderer>();
-
         for (int i = 0; i < 3; i++)
         {
             if (PlayerManager.GetPlayerList()[i].nowChoose)
@@ -91,6 +91,7 @@ public class PlayerController : MonoBehaviour
         }
         if (skillData[1].skillName == "원코국룰")
         {
+            playerShield.SetActive(true);
             shield += 1;
         }
         if (skillData[1].skillName == "이동속도 증가")
@@ -184,6 +185,7 @@ public class PlayerController : MonoBehaviour
             audioSource.clip = die;
             audioSource.Play();
             shield -= 1;
+            playerShield.SetActive(false);
         }
         
         if (collision.name == "coin(Clone)")
