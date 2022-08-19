@@ -37,15 +37,38 @@ public class PlayerController : MonoBehaviour
     public AudioClip flash;
     public AudioClip ice;
     public AudioClip snap;
+    public AudioClip die;
+    public AudioClip thanos;
+    private Animator animator;
 
     private void Awake()
     {
+        animator = gameObject.GetComponent<Animator>();
         skillButton.onClick.AddListener(UseSkill);
         playerImage = GetComponent<SpriteRenderer>();
-        for (int i = 0; i < 2; i++)
+
+        for (int i = 0; i < 3; i++)
         {
             if (PlayerManager.GetPlayerList()[i].nowChoose)
+            {
                 playerImage.sprite = PlayerManager.GetPlayerList()[i].playerSprite;
+                if(i==0)
+                {
+                    animator.SetTrigger("01");
+                }
+                if(i==1)
+                {
+                    gameObject.transform.localScale = new Vector3(-0.65f, 0.65f, 1);
+                    animator.SetTrigger("02");
+                }
+                if(i==2)
+                {
+                    animator.SetTrigger("03");
+                    gameObject.transform.localPosition = new Vector2(0, -4);
+                    gameObject.GetComponent<BoxCollider2D>().offset = new Vector2(0.03527361f, 0.4760385f);
+                    gameObject.GetComponent<BoxCollider2D>().size = new Vector2(0.8211522f, 0.9184052f);
+                }
+            }
         }
     }
     private void Start()
@@ -104,11 +127,17 @@ public class PlayerController : MonoBehaviour
             if (horizontal < 0)
             {
                 isLeft = true;
+                gameObject.GetComponent<SpriteRenderer>().flipX = true;
+                animator.SetBool("isRun", true);
             }
-            if (horizontal > 0)
+            else if (horizontal > 0)
             {
+                animator.SetBool("isRun", true);
                 isLeft = false;
+                gameObject.GetComponent<SpriteRenderer>().flipX = false;
             }
+            else
+                animator.SetBool("isRun", false);
             transform.Translate(horizontal * Time.deltaTime * speed, 0f, 0f);
 
             if (transform.position.x <= -edge)
@@ -144,18 +173,24 @@ public class PlayerController : MonoBehaviour
         Debug.Log(collision.name);
         if (collision.name == "Drop(Clone)" && shield == 0 && dontDie == false || collision.name == "BigDrop(Clone)" && shield == 0 && dontDie == false)
         {
+            audioSource.clip = die;
+            audioSource.Play();
             dieMenu.SetActive(true);
             ClearSkill();
             Time.timeScale = 0f;
         } 
         else if (collision.name == "Drop(Clone)" && shield == 1 && dontDie == false || collision.name == "BigDrop(Clone)" && shield == 1 && dontDie == false)
         {
+            audioSource.clip = die;
+            audioSource.Play();
             shield -= 1;
         }
         
         if (collision.name == "coin(Clone)")
         {
             Land.Instance.HandleCoin(coinAdd);
+            audioSource.clip = snap;
+                audioSource.Play();
         }
     }
 
@@ -174,7 +209,7 @@ public class PlayerController : MonoBehaviour
             skillImage.fillAmount = 0;
             skillused = true;
             audioSource.clip = flash;
-            audioSource.Play();
+                audioSource.Play();
         }
         if (skillused == false && skillData[0].skillName == "¾óÀ½¶¯!")
         {
@@ -186,7 +221,7 @@ public class PlayerController : MonoBehaviour
             skillImage.fillAmount = 0;
             skillused = true;
             audioSource.clip = ice;
-            audioSource.Play();
+                audioSource.Play();
         }   
         if (skillused == false && skillData[0].skillName == "ÇÎ°Å½º³À")
         {
@@ -200,10 +235,10 @@ public class PlayerController : MonoBehaviour
                     }
                 }
             }
+            audioSource.clip = thanos;
+            audioSource.Play();
             skillImage.fillAmount = 0;
             skillused = true;
-            audioSource.clip = snap;
-            audioSource.Play();
         }
     }
     public void ClearSkill()

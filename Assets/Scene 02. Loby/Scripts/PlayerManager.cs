@@ -18,8 +18,8 @@ public class PlayerManager : MonoBehaviour
 
     private void Awake()
     {
-        AddPlayer(new PlayerData("01", "White"));
-        AddPlayer(new PlayerData("02", "Mint"));
-        AddPlayer(new PlayerData("03", "Red"));
+        AddPlayer(new PlayerData("01", "»Úµ’¿Ã"));
+        AddPlayer(new PlayerData("02", "∞≥±º¿Ã"));
+        AddPlayer(new PlayerData("03", "∞¯∑Ê¿Ã"));
     }
 }

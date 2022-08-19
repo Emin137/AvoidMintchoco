@@ -20,6 +20,12 @@ public class UIManager : MonoBehaviour
     public Text skillDescriptionText;
     public Text coinNumText;
     public Text userNameText;
+    public Toggle musicToggle;
+    public Toggle soundToggle;
+    public AudioSource audioSource;
+    public AudioClip error;
+    
+
     private int coin = 0;
     private int count = 0;
     private string name;
@@ -55,6 +61,10 @@ public class UIManager : MonoBehaviour
     {
         coin = PlayerPrefs.GetInt(name);
         coinNumText.text = $"Coin : {coin}";
+        if (musicToggle.isOn)
+            GameObject.FindObjectOfType<AudioManager>().GetComponent<AudioSource>().volume = 0.3f;
+        else
+            GameObject.FindObjectOfType<AudioManager>().GetComponent<AudioSource>().volume = 0;
     }
 
     private void SetActivePanelGameReady()
@@ -82,7 +92,7 @@ public class UIManager : MonoBehaviour
 
     public void SetActiveSlotAgainButton()
     {
-        if(GameStartManager.GetUserCoin()>30)
+        if(GameStartManager.GetUserCoin()>=30)
             slotAgainButton.interactable = true;
     }
 

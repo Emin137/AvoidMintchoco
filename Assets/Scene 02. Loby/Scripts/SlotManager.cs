@@ -28,7 +28,7 @@ public class SlotManager : MonoBehaviour,IPointerEnterHandler,IPointerExitHandle
 
     private void RulletAgain()
     {
-        GameStartManager.SetUserCoin(GameStartManager.GetUserCoin() - 30);
+        GameStartManager.SetUserCoin(GameStartManager.GetUserCoin() - 10);
         if (SkillManager.GetResultSkill().Count == 3)
             SkillManager.GetResultSkill().Clear();
         RulletSlot();

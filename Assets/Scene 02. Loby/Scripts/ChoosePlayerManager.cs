@@ -12,6 +12,8 @@ public class ChoosePlayerManager : MonoBehaviour
     public Button leftButton;
     public Text textPlayerName;
     private int numIndex = 1;
+    public AudioSource audioSource;
+    public AudioClip error;
 
     private void Awake()
     {
@@ -30,6 +32,8 @@ public class ChoosePlayerManager : MonoBehaviour
         if (numIndex > 2)
         {
             Debug.Log("더이상 오른쪽으로 넘어갈수업슴");
+            audioSource.clip = error;
+            audioSource.Play();
             numIndex--;
         }
         playerImage.sprite = PlayerManager.GetPlayerList()[numIndex].playerSprite;
@@ -50,6 +54,8 @@ public class ChoosePlayerManager : MonoBehaviour
         if(numIndex<0)
         {
             Debug.Log("더이상 왼쪽으로 넘어갈수업슴");
+            audioSource.clip = error;
+            audioSource.Play();
             numIndex++;
         }
         playerImage.sprite = PlayerManager.GetPlayerList()[numIndex].playerSprite;

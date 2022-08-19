@@ -1554,6 +1554,7 @@ GameObject:
   - component: {fileID: 647124694}
   - component: {fileID: 647124693}
   - component: {fileID: 647124692}
+  - component: {fileID: 647124697}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1595,18 +1596,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.022620767, y: 0.0004938841}
+  m_Offset: {x: -0.03040934, y: 0.0004938841}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.8, y: 0.8}
-    newSize: {x: 0.8, y: 0.8}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.36266536, y: 0.7029648}
+  m_Size: {x: 0.6897863, y: 0.7029648}
   m_EdgeRadius: 0
 --- !u!114 &647124694
 MonoBehaviour:
@@ -1633,6 +1634,7 @@ MonoBehaviour:
   flash: {fileID: 8300000, guid: bf1ad44eb67ab2141a8b8ae781fe0007, type: 3}
   ice: {fileID: 8300000, guid: d99bac923ee095a43a87c417e10928eb, type: 3}
   snap: {fileID: 8300000, guid: a4b3bef786d8a6d49a43c9b8b6bdcfa4, type: 3}
+  die: {fileID: 8300000, guid: 748bfaff907ecaa4b9ead1b20071465f, type: 3}
 --- !u!212 &647124695
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1678,10 +1680,10 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.8, y: 0.8}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &647124696
@@ -1693,11 +1695,30 @@ Transform:
   m_GameObject: {fileID: 647124691}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -3.655, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.65, y: 0.65, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &647124697
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647124691}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 92b9624d3ce3e7840b99ef783194dc05, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &734958854
 GameObject:
   m_ObjectHideFlags: 0
@@ -2656,6 +2677,7 @@ MonoBehaviour:
   quitButton: {fileID: 176256600}
   coinText: {fileID: 451284992}
   scoreText: {fileID: 87702821}
+  image: {fileID: 646325236}
 --- !u!1 &1485573100
 GameObject:
   m_ObjectHideFlags: 0
@@ -3875,7 +3897,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2141683266}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.12, y: -0.81, z: -8.053822}
+  m_LocalPosition: {x: 0.12, y: -1.06, z: -8.053822}
   m_LocalScale: {x: 0.3327, y: 0.3327, z: 0.3327}
   m_Children: []
   m_Father: {fileID: 0}

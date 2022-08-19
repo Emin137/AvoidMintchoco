@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ddong
   - DontDie
+  - Sound
   layers:
   - Default
   - TransparentFX

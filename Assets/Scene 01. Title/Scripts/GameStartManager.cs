@@ -12,14 +12,24 @@ public class GameStartManager : MonoBehaviour
     public InputField inputField;
     public static string name;
     public static int coin;
-    public GameObject music;
+    private static GameStartManager instance;
+    public static GameStartManager Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<GameStartManager>();
+            }
+            return instance;
+        }
+    }
+
 
     private void Awake()
     {
         gameStartButton.onClick.AddListener(ShowLoginPanel);
         loginButton.onClick.AddListener(Login);
-        DontDestroyOnLoad(music);
-        
     }
 
     private void ShowLoginPanel()

@@ -10,11 +10,17 @@ public class DieMenu : MonoBehaviour
     [SerializeField] Button quitButton;
     [SerializeField] Text coinText;
     [SerializeField] Text scoreText;
+    public Image image;
 
     private void Awake()
     {
         quitButton.onClick.AddListener(Quit);
         lobyButton.onClick.AddListener(Loby);
+        for (int i = 0; i < 3; i++)
+        {
+            if (PlayerManager.GetPlayerList()[i].nowChoose)
+                image.sprite = PlayerManager.GetPlayerList()[i].playerSprite;
+        }
     }
     private void Update()
     {
