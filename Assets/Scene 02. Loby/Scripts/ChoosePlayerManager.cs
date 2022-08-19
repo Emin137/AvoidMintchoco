@@ -26,6 +26,14 @@ public class ChoosePlayerManager : MonoBehaviour
         chooseButton.onClick.AddListener(Choose);
     }
 
+    private void Update()
+    {
+        if (numIndex == 1)
+            playerImage.transform.localScale = new Vector3(-1, 1, 1);
+        else
+            playerImage.transform.localScale = new Vector3(1, 1, 1);
+    }
+
     private void Right()
     {
         numIndex++;
