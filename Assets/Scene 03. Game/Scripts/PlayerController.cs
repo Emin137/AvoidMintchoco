@@ -55,9 +55,11 @@ public class PlayerController : MonoBehaviour
                 if(i==0)
                 {
                     animator.SetTrigger("01");
+                    playerShield.transform.localPosition = new Vector2(0, 0.3f);
                 }
                 if(i==1)
                 {
+                    playerShield.transform.localPosition = new Vector2(0, 0.21f);
                     gameObject.transform.localScale = new Vector3(-0.65f, 0.65f, 1);
                     animator.SetTrigger("02");
                 }
@@ -65,7 +67,7 @@ public class PlayerController : MonoBehaviour
                 {
                     animator.SetTrigger("03");
                     gameObject.transform.localPosition = new Vector2(0, -4);
-                    playerShield.transform.localPosition = new Vector2(0, 0.5f);
+                    playerShield.transform.localPosition = new Vector2(0, 0.77f);
                     gameObject.GetComponent<BoxCollider2D>().offset = new Vector2(0.03527361f, 0.4760385f);
                     gameObject.GetComponent<BoxCollider2D>().size = new Vector2(0.8211522f, 0.9184052f);
                 }
