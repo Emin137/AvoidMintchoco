@@ -1,6 +1,8 @@
 # Unity_SuberRunker
 
-### 똥피하기게임 만들기 프로젝트 : 2022-08-09 ~ 
+### 똥피하기게임 만들기 프로젝트 : 2022-08-09 ~ 2022-08-21
+
+Game Download : https://drive.google.com/file/d/17tnBRPoju2BRZRnkodXP8H8eAqidRJgZ/view?usp=sharing
 
 # 게임 기획 초안
 
