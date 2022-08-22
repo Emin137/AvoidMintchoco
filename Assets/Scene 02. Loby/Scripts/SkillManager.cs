@@ -50,7 +50,7 @@ public class SkillManager : MonoBehaviour
         SkillManager.AddSkill(new SkillData("01", "이동속도 증가", "플레이어의 이동속도가 1.5배 증가합니다.", SkillData.SkillType.Passive));
         SkillManager.AddSkill(new SkillData("02", "묻고 더블로 가!", "코인 획득량이 2배 증가합니다.", SkillData.SkillType.Passive));
         SkillManager.AddSkill(new SkillData("03", "점멸", "짧은 거리를 순간이동합니다.", SkillData.SkillType.Active));
-        SkillManager.AddSkill(new SkillData("04", "얼음~땡!", "플레이어가 2초 동안 움직일 수 없으며 무적상태가 됩니다.", SkillData.SkillType.Active));
+        SkillManager.AddSkill(new SkillData("04", "얼음땡!", "플레이어가 2초 동안 움직일 수 없으며 무적상태가 됩니다.", SkillData.SkillType.Active));
         SkillManager.AddSkill(new SkillData("05", "핑거스냅", "현재 떨어지고있는 똥의 반절을 타노스 합니다.", SkillData.SkillType.Active));
         SkillManager.AddSkill(new SkillData("06", "무수한 민초", "민트초코의 생성주기가 증가합니다.", SkillData.SkillType.Debuff));
         SkillManager.AddSkill(new SkillData("07", "사이즈 업", "민트초코의 크기가 상승합니다.", SkillData.SkillType.Debuff));

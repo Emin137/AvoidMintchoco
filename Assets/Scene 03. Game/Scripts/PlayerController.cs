@@ -216,7 +216,7 @@ public class PlayerController : MonoBehaviour
             audioSource.clip = flash;
                 audioSource.Play();
         }
-        if (skillused == false && skillData[0].skillName == "¾óÀ½~¶¯!")
+        if (skillused == false && skillData[0].skillName == "¾óÀ½¶¯!")
         {
             Debug.Log("¾óÀ½¶¯!");
             dontDie = true;
