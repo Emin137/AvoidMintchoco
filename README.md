@@ -1,5 +1,5 @@
 # Unity_SuberRunker
-
+2D Avoid Game by Unity Team Project.
 ### 똥피하기게임 만들기 프로젝트 : 2022-08-09 ~ 2022-08-21
 
 Game Download : https://drive.google.com/file/d/1fwhDy84vS_uYQIAuR8V6z8T0mH3210iM/view?usp=sharing
